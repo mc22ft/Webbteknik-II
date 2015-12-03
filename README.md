@@ -6,6 +6,7 @@ Mathias Claesson mc22ft
 #Förord
 
 Denna rapport baserar sig på de brister och fel som jag har hittat i applikationen Labby message. Detta är Laboration 2 i kursen Webbteknik II på Línneuniversitetet. Kursansvarig är John Häggerud. 
+
 I Kapitlet “Säkerhetsproblem” hittar läsaren underrubriker som grundar sig på OWASP Top 10 lista gällande säkerhetshål från år 2013[1]. I kapitlet “Prestandaproblem” har jag utgått från Steve Sounders, *High Performance Web Site*[9].
 Några verktyg som jag har använt är självstudiematerial från kurs hemsidan, Google för att söka på enstaka problem lösningar, Postman för att inspektera olika anrop, Chrome och Mozilla för att inspektera koden på applikationen. För mer ingående information så finns referenser till varje del av rapporten.
 
