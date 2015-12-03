@@ -1,36 +1,8 @@
-# Webbteknik-II 
-
-Rapporten
-Webbteknik II 
+#Rapporten Webbteknik II 
 
 
 
-
-
-Innehåll
-	Förord										1
-	Säkerhetsproblem									2
-		Injection									2
-		Broken Authentication and Session Management				3
-		XSS Cross site scripting							4
-Sensitive Data Exposure							4
-CSRF Cross-Site Request Forger						5
-Prestandaproblem 									6
-	Make fewer HTTP requests							6
-Add an expires header								6
-Put stylesheets at the top							6
-Put scripts at the bottom							6
-Make JavaScript and CSS External						7
-Minify JavaScript								7
-Egna reflektioner								7
-Egna övergripande reflektioner							8
-Referenslista										8
-
-
-
-
-
-Förord
+#Förord
 Denna rapport baserar sig på de brister och fel som jag har hittat i applikationen Labby message. Detta är Laboration 2 i kursen Webbteknik II på Línneuniversitetet. 
 Kursansvarig är John Häggerud. 
 I Kapitlet “Säkerhetsproblem” hittar läsaren underrubriker som grundar sig på OWASP Top 10 lista gällande säkerhetshål från år 2013[1]. I kapitlet “Prestandaproblem” har jag utgått från Steve Sounders, High Performance Web Site[9].
