@@ -35,7 +35,7 @@ Konton i sig är målet på denna attack. Angriparen vill åt hela konton helst 
 Använda sig av en enda uppsättning av identifiering och se till att sessionhanteringen går korrekt till. Nedan anges de kontroller som man kan sträva efter att följa[1]. 
 * Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s *Security Verification Standard*[2]
 * Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara *ESAPI Authenticator and User APIs*[7].
-Det är också viktig att lägga mycket arbeta på att skydda sig mot XSS attacker vilket innebär att användarens session blir stulen av angriparen[1].
+* Det är också viktig att lägga mycket arbeta på att skydda sig mot XSS attacker vilket innebär att användarens session blir stulen av angriparen[1].
 
 ##XSS Cross site scripting
 Det innebär att angriparen på något sätt planterat ut skadlig kod på en dåligt validerad applikation. Om användaren klickar på något script från angriparen finns risken för att användarsession kan kapas. Man blir då skickad till en manipulerad applikation som utger sig för att vara något de inte är, eller rent av skadliga sidor för användaren[1][5].
