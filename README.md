@@ -1,84 +1,72 @@
 #Rapporten Webbteknik II 
-
+Mathias Claesson mc22ft
 
 
 #Förord
+
 Denna rapport baserar sig på de brister och fel som jag har hittat i applikationen Labby message. Detta är Laboration 2 i kursen Webbteknik II på Línneuniversitetet. 
 Kursansvarig är John Häggerud. 
 I Kapitlet “Säkerhetsproblem” hittar läsaren underrubriker som grundar sig på OWASP Top 10 lista gällande säkerhetshål från år 2013[1]. I kapitlet “Prestandaproblem” har jag utgått från Steve Sounders, High Performance Web Site[9].
 Några verktyg som jag har använt är självstudiematerial från kurs hemsidan, Google för att söka på enstaka problem lösningar, Postman för att inspektera olika anrop, Chrome och Mozilla för att inspektera koden på applikationen. För mer ingående information så finns referenser till varje del av rapporten.
- 
 
+#Säkerhetsproblem
 
-
-
-
-
-
-
-
-
-
-
-
-Säkerhetsproblem
-
-Injection
+##Injection
 Injektion är den vanligaste typen av angrepp enligt tio i topp listan från OWASP[1]. Här är det databasen på applikationen som blir angripen. Angriparen försöker manipulera databasen genom att skicka SQL-frågor i indata fälten[1]. På detta sätt luras databasen att skicka tillbaka den data eller det svar som angriparen är ute efter. 
 Alla indatafält som finns i applikationen kan bli utsatt för ett angrepp.
 
-Eventuella följder problemet kan skapa?
+######Eventuella följder problemet kan skapa?
 Största och allvarligaste hotet skulle jag påstå är på inloggningen. På en applikation där injektion är möjlig kan man skicka in SQL-frågor i inloggningsfältet och därefter bli inloggad utan några större problem. Detta innebär att t.e.x. jag skulle kunna ta över hela kontot. Allvarligare följder skulle kunna vara att delar eller hela databaser kan blir dumpade/raderade av dessa angrepp. Det skulle alltså vara möjligt att skicka in vilka SQL-frågor som helst mot databasen. 
 Följderna för en användare av applikationen, som blir utsatt av injektion, skulle kunna vara att köpa eller skriva saker i användares namn. Om det skulle varit ett Administrationskonto som injicerats kan denne göra vad hen vill på hela applikationen. Allt från att ändra priser, namn, radera saker i databasen och få ut känslig information gällande medlemmar av applikationen. Med känslig information menas användarnamn och lösenord, om de inte är krypterade, och i värsta fall kreditkortsuppgifter.
 
-Hur man åtgärdar problemet?
+######Hur man åtgärdar problemet?
 Hur förhindras Injektion?
 Det bästa alternativet är att använda variabel bindning av data som kommer in till applikationen. Det går till så att när datan kommer fram till databasen ska det vara en parameter och inte en fråga. T.e.x. att fråga om ett lösenord där utgången av ‘1’=’1 = true. Det skulle resultera i att en blev inloggad om det var möjligt med injektioin. Att skicka datan med variabel bindning så att databasen skulle försöka hitta lösenordet “‘1’=’1” som är en sträng[3].
 Lagrade procedurer är ett annat sätt att skydda sig. Här ligger skyddet i själva databasen. Då utvecklaren har färdiga SQL satser som styrs av parametrar från applikationen[3]. Detta fungerar lite som beskrivet ovan fast i databasen.
 Validering på indatan i applikationen är också ett sätt, dock inte 100 procentigt  säkert. Det kan vara lätt att glömma bort något som är viktigt. Här skulle man kunna stoppa vissa specialtecken som databasen kräver i sina SQL frågor eller hela SQL-frågor[3]. 
 
-Broken Authentication and Session Management
+##Broken Authentication and Session Management
 Detta rör applikationens hanteringen av identifieringens funktioner. Detta beror på att hanteringen av session inte har gjorts korrekt. På så sätt kan lösenord, nycklar eller cookie session synas öppet på något sätt i applikationen[1]. Eller en session som inte blir raderad när man loggar ut.
 
-Eventuella följder problemt kan skapa?
+######Eventuella följder problemt kan skapa?
 Konton i sig är målet på denna attack. Angriparen vill åt hela konton helst de konton som är högt betrodda[1]. På detta sätt kunna manipulera omgivningen till kontohavaren samt utföra bedrägerier av olika slag. 
 
-Hur man åtgärdar problemet?
+######Hur man åtgärdar problemet?
 Använda sig av en enda uppsättning av identifiering och se till att sessionhanteringen går korrekt till. Nedan anges de kontroller som man kan sträva efter att följa[1]. 
 Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s “Security Verification Standard”[2]
 Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara “ESAPI Authenticator and User APIs”[7].
 Det är också viktig att lägga mycket arbeta på att skydda sig mot XSS attacker vilket innebär att användarens session blir stulen av angriparen[1].
 
-XSS Cross site scripting
+##XSS Cross site scripting
 Det innebär att angriparen på något sätt planterat ut skadlig kod på en dåligt validerad applikation. Om användaren klickar på något script från angriparen finns risken för att användarsession kan kapas. Man blir då skickad till en manipulerad applikation som utger sig för att vara något de inte är, eller rent av skadliga sidor för användaren[1][5].
 
-Eventuella följder problemt kan skapa?
+######Eventuella följder problemt kan skapa?
 När någon får tag i din session cookie kan följderna bli förödande. Angriparen kommer att kunna vara inloggad på den sidan som cookien kommer ifrån. Det vanligaste skulle vara ett forum där det går att skriva in javascript för att få ut sessioninformation om användaren[5]. Angriparen kan nu låtsas var kontoinnehavaren och manipulera anhöriga på olika sätt för att t.e.x. få tag i  pengar. Om angriparen lyckats få cookie:n från ett forum där det även går att köpa saker skulle angriparen kunna beställa saker i användarens namn.
 
-Hur man åtgärdar problemet?
+######Hur man åtgärdar problemet?
 Utvecklaren ska i den mån det går undvika möjligheten att kunna skicka in skadlig kod på applikationen som sedan kan kommer ut till användarna[1]. Utvecklaren kan skapa speciella session-id för användaren baserad på tex browser och ip nummer. Ett annat sätt är att byta ut session-id som användaren har ofta. På detta sätt så förbättras chanserna att inte råka ut för session-kapning[5]. 
 
-Sensitive Data Exposure
+##Sensitive Data Exposure
 Problemet med att skydda data som bör vara skyddat är svårt då många applikationer ligger helt öppna för vem som helst att se. Angriparen behöver inte anstränga sig så mycket när datan ligger helt öppen på detta sättet.. Här är det utvecklaren som måste avgöra vilken data som ska vara synlig eller inte[1]. 
 
-Eventuella följder problemt kan skapa?
+######Eventuella följder problemt kan skapa?
 Följderna med öppen data kan vara förödande för alla i samhället. Det kan vara lösenord, kredituppgifter, känslig data för privatpersoner, företagshemligheter osv. som ligger öppna. I och med detta så kan angriparen göra vad hen vill med uppgifterna.  Detta kan resultera i kreditkortsbedrägeri, identitets stöld eller andra brott.. 
 
-Hur man åtgärdar problemet?
+######Hur man åtgärdar problemet?
 Det är viktigt att inga länkar ligger öppna, ett bra verktyg kan vara ett som hittar alla öppna länkar på applikationen[6] och därefter analysera om det är något som inte ska vara där. Andra saker som att hascha lösenord så att de inte sparas i klartext. Se över säkerheten för känslig data mycket noga. Kryptera den data som är känslig om den mot all förmodan skulle kommas åt inte ska gå att få fram som klartext. Spara inte data i onödan utan radera den så fort den inte behövs[1].
 
-CSRF Cross-Site Request Forgery
+##CSRF Cross-Site Request Forgery
 I detta fall så tvingar angriparen att skicka en HTTP anrop i offrets webbläsare. Offret blir utsatt med skadlig kod. Det kan t.e.x. vara en manipulerad image tagg, XSS attack eller något annat sätt som gör att någon blir offer för en hackerattack.
 Detta anrop sker i bakgrunden och med angriparens uppgifter i anropet som sker. Offret måste då vara inloggad på den plats som angriparen gör sin attack på om det ska lyckats. 
 
-Eventuella följder problemt kan skapa?
+######Eventuella följder problemt kan skapa?
 Attacken är ganska enkel. En CSRF sårbarhet tillåter en angripare att tvinga en inloggad användare att utföra en viktig åtgärd utan deras medgivande eller vetskap. Det skulle resultera i att du blir av med pengar, varor kan bli beställda eller så kan du bli mål för att leverera ut spam. Det kan vara så att angriparen gör så att annonser blir riktade mot dig utan att du vet om det. Denna attack i sig lämnar inga spår efter sig.
 
-Hur man åtgärdar problemet?
+######Hur man åtgärdar problemet?
 Synchronizer Token Pattern är det sätt som är vanligast att skydda sig med. Det går ut på att serversidan ska upptäcka manipulering av HTTP anropet och ett unikt token skickas med i varje förfrågan. På detta sätt skyddas användaren av attacken men det fungerar bara på POST anrop, inte på ett GET anrop[8].
 
 
-Prestandaproblem 
+#Prestandaproblem 
 
 Make fewer HTTP requests
 Det första man kan göra är att titta på antal HTTP anrop som sker. Det kan vara bilder som ska laddas upp för användaren. Detta kan lösas med att kombinera ihop bilder för att göra ett anrop istället för kanske fem. Sedan placera ut de med hjälp av CSS på sidan[9, s. 10] och när det gäller CSS så minskar tiden för att ladda upp sidan om man bara har en CSS fil. Kombinera ihop CSS till en fil förbättrar prestandan[9, s. 15].
