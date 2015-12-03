@@ -21,9 +21,9 @@ Följderna för en användare av applikationen, som blir utsatt av injektion, sk
 
 ######Hur man åtgärdar problemet?
 Hur förhindras Injektion?
-Det bästa alternativet är att använda variabel bindning av data som kommer in till applikationen. Det går till så att när datan kommer fram till databasen ska det vara en parameter och inte en fråga. T.e.x. att fråga om ett lösenord där utgången av ‘1’=’1 = true. Det skulle resultera i att en blev inloggad om det var möjligt med injektioin. Att skicka datan med variabel bindning så att databasen skulle försöka hitta lösenordet “‘1’=’1” som är en sträng[3].
-Lagrade procedurer är ett annat sätt att skydda sig. Här ligger skyddet i själva databasen. Då utvecklaren har färdiga SQL satser som styrs av parametrar från applikationen[3]. Detta fungerar lite som beskrivet ovan fast i databasen.
-Validering på indatan i applikationen är också ett sätt, dock inte 100 procentigt  säkert. Det kan vara lätt att glömma bort något som är viktigt. Här skulle man kunna stoppa vissa specialtecken som databasen kräver i sina SQL frågor eller hela SQL-frågor[3]. 
+1. Det bästa alternativet är att använda variabel bindning av data som kommer in till applikationen. Det går till så att när datan kommer fram till databasen ska det vara en parameter och inte en fråga. T.e.x. att fråga om ett lösenord där utgången av ‘1’=’1 = true. Det skulle resultera i att en blev inloggad om det var möjligt med injektioin. Att skicka datan med variabel bindning så att databasen skulle försöka hitta lösenordet “‘1’=’1” som är en sträng[3].
+2. Lagrade procedurer är ett annat sätt att skydda sig. Här ligger skyddet i själva databasen. Då utvecklaren har färdiga SQL satser som styrs av parametrar från applikationen[3]. Detta fungerar lite som beskrivet ovan fast i databasen.
+3. Validering på indatan i applikationen är också ett sätt, dock inte 100 procentigt  säkert. Det kan vara lätt att glömma bort något som är viktigt. Här skulle man kunna stoppa vissa specialtecken som databasen kräver i sina SQL frågor eller hela SQL-frågor[3]. 
 
 ##Broken Authentication and Session Management
 Detta rör applikationens hanteringen av identifieringens funktioner. Detta beror på att hanteringen av session inte har gjorts korrekt. På så sätt kan lösenord, nycklar eller cookie session synas öppet på något sätt i applikationen[1]. Eller en session som inte blir raderad när man loggar ut.
@@ -68,32 +68,32 @@ Synchronizer Token Pattern är det sätt som är vanligast att skydda sig med. D
 
 #Prestandaproblem 
 
-Make fewer HTTP requests
+##Make fewer HTTP requests
 Det första man kan göra är att titta på antal HTTP anrop som sker. Det kan vara bilder som ska laddas upp för användaren. Detta kan lösas med att kombinera ihop bilder för att göra ett anrop istället för kanske fem. Sedan placera ut de med hjälp av CSS på sidan[9, s. 10] och när det gäller CSS så minskar tiden för att ladda upp sidan om man bara har en CSS fil. Kombinera ihop CSS till en fil förbättrar prestandan[9, s. 15].
 Det är också möjligt att utnyttja URL schema som finns inbyggt. Där man kan “förvara” data som laddas fram omgående utan ett HTTP anrop[9, s. 13].
 
-Add an expires header
+##Add an expires header
 Ett annat sätt är att spara data i browserns cache(minne). På detta sätt kan man undvika att göra så många HTTP anrop mot servern. Cacha data kan göras med det mesta utom själva HTML dokument. Det vanligaste är att man sparar bilder. Man ska inte vara rädd att spara scripts och CSS eller andra liknade filer[9, s. 29-30]. 
 
-Put stylesheets at the top
+##Put stylesheets at the top
 För att applikationen ska renderas upp på bästa sätt ska CSS länkas in i headern i en link tagg[9, s. 41]. Om detta inte görs och lägger den sist i HTML dokumentet så riskerar man att applikationen får en vit laddnings sida. Som i sin tur kan göra att man förlorar användare till en konkurrerande sida[9, s. 38].
 
-Put scripts at the bottom
+##Put scripts at the bottom
 För att inte riskera att få en fördröjning på renderingen av applikationen ska script (javascript) filer placeras i botten på applikationen[9, s. 49]. Hämtningen av komponenter görs med  parallella nedladdningar. Om det skulle uppstå störningar med att ladda script mellan dessa nedladdningar kan detta innebära att det tar mer tid att rendera upp applikationens[9, s. 46].
 
 
-Make JavaScript and CSS External
+##Make JavaScript and CSS External
 Att använda sig av externa filer för javascript och CSS rekommenderas. Även om applikationen skulle renderas upp fortare av att ha CSS internt. Detta endast första gången HTML dokumentet laddas hem. Man slipper då i detta fallet extra HTTP anrop av filer vilket är optimalt för en applikation som bara har en sida med endast unika återkommande användare[9, s. 55]. 
 Observera, då möjligheten att spara filerna i browserns cashe minne finns bör man utnyttja detta om applikationen ska renderas upp på snabbt.. Att casha datan görs bara första gången applikationen hämtas hem därefter så hämtas det utan att göra ett HTTP anrop från cashen. Det finns även sätt att jobba runt för att slippa göra stora HTTP anrop för första gången av filer, då en applikation ska renderas upp. I längden så vinner man på att ha externa filer[9, s. 57-62]!
 
-Minify JavaScript
+##Minify JavaScript
 Att komprimera javascript koden är att föredra. Det innebär att man tar bort onödig kod som som finns i dokumentet. Alla kommentarer och all “white space” (mellan slag, ny rad och tabbningar) tas bort. Förkortade namn på variabler och övrig kod görs för att minska den så mycket det går[9, s. 69]. Att göra detta kan medföra både buggar och problem med underhåll, debugging kan bli svår att tolka. Det finns bra verktyg för att göra detta som bör användas. JSMin är ett exempel som ikonen Douglas Crockford utvecklat. Sedan finns det en uppsjö av andra verktyg[9, s. 70].
 
-Egna reflektioner
+##Egna reflektioner
 Några saker jag skulle vilja lyfta gällande prestandan på applikationen är att jag kunde se lite onödig HTML kod på applikationen. Detta skulle kunna innebära att HTTP anropet blir större än det borde vara.
 Funktioner som inte fungerade skulle i värsta fall kunna innebära att data inte kan tas bort från applikationen. T.e.x. om det skulle varit en “remove message” knapp som inte fungerade. Det skulle innebära att det skulle ta längre och längre tid för servern att ladda upp datan på applikationen. 
 
-Egna övergripande reflektioner
+#Egna övergripande reflektioner
 
 Tanken som slår mig är att alla säkerhetshål, oavsett om det är en attack av en injektion eller någon annan hacker attack, resulterar i att datan som kommer fram är nästan densamma. Det är ett stort hot mot användarna och till och med samhället om känslig data hamnar i fel händer. 
 Det ligger ett stort ansvar på utvecklarna att “täppa till” alla säkerhetshål som är öppna samt hålla applikationens alla delar uppdaterade med senaste tekniken. Det börjar sjunka in att det är mer jobb med underhåll och uppdateringar än jag tidigare trott. 
@@ -104,7 +104,7 @@ Jag undrade om boken[9] fortfarande är lika aktuell som när den gavs ut (2007)
 
 
 
-Refernslista
+#Refernslista
 
 [1] OWASP, "OWASP Top Ten Project," www.owasp.org, 12 June 2013, [Online] Tillgänglig pdf: https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013. [Hämtad: 26 November, 2015].
 
