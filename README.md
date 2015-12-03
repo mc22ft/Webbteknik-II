@@ -33,8 +33,8 @@ Konton i sig är målet på denna attack. Angriparen vill åt hela konton helst 
 
 ######Hur man åtgärdar problemet?
 Använda sig av en enda uppsättning av identifiering och se till att sessionhanteringen går korrekt till. Nedan anges de kontroller som man kan sträva efter att följa[1]. 
-*Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s *Security Verification Standard*[2]
-*Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara *ESAPI Authenticator and User APIs*[7].
+* Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s *Security Verification Standard*[2]
+* Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara *ESAPI Authenticator and User APIs*[7].
 Det är också viktig att lägga mycket arbeta på att skydda sig mot XSS attacker vilket innebär att användarens session blir stulen av angriparen[1].
 
 ##XSS Cross site scripting
