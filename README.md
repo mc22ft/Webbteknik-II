@@ -22,8 +22,8 @@ Följderna för en användare av applikationen, som blir utsatt av injektion, sk
 ######Hur man åtgärdar problemet?
 Hur förhindras Injektion?
 * Det bästa alternativet är att använda variabel bindning av data som kommer in till applikationen. Det går till så att när datan kommer fram till databasen ska det vara en parameter och inte en fråga. T.e.x. att fråga om ett lösenord där utgången av ‘1’=’1 = true. Det skulle resultera i att en blev inloggad om det var möjligt med injektioin. Att skicka datan med variabel bindning så att databasen skulle försöka hitta lösenordet “‘1’=’1” som är en sträng[3].
-2. Lagrade procedurer är ett annat sätt att skydda sig. Här ligger skyddet i själva databasen. Då utvecklaren har färdiga SQL satser som styrs av parametrar från applikationen[3]. Detta fungerar lite som beskrivet ovan fast i databasen.
-3. Validering på indatan i applikationen är också ett sätt, dock inte 100 procentigt  säkert. Det kan vara lätt att glömma bort något som är viktigt. Här skulle man kunna stoppa vissa specialtecken som databasen kräver i sina SQL frågor eller hela SQL-frågor[3]. 
+* Lagrade procedurer är ett annat sätt att skydda sig. Här ligger skyddet i själva databasen. Då utvecklaren har färdiga SQL satser som styrs av parametrar från applikationen[3]. Detta fungerar lite som beskrivet ovan fast i databasen.
+* Validering på indatan i applikationen är också ett sätt, dock inte 100 procentigt  säkert. Det kan vara lätt att glömma bort något som är viktigt. Här skulle man kunna stoppa vissa specialtecken som databasen kräver i sina SQL frågor eller hela SQL-frågor[3]. 
 
 ##Broken Authentication and Session Management
 Detta rör applikationens hanteringen av identifieringens funktioner. Detta beror på att hanteringen av session inte har gjorts korrekt. På så sätt kan lösenord, nycklar eller cookie session synas öppet på något sätt i applikationen[1]. Eller en session som inte blir raderad när man loggar ut.
@@ -33,8 +33,8 @@ Konton i sig är målet på denna attack. Angriparen vill åt hela konton helst 
 
 ######Hur man åtgärdar problemet?
 Använda sig av en enda uppsättning av identifiering och se till att sessionhanteringen går korrekt till. Nedan anges de kontroller som man kan sträva efter att följa[1]. 
-Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s “Security Verification Standard”[2]
-Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara “ESAPI Authenticator and User APIs”[7].
+*Uppfylla alla identifierings- och sessionhantering som anges i OWASP´s *Security Verification Standard*[2]
+*Utvecklaren använder ett enkelt interface. Värt att undersöka skulle vara *ESAPI Authenticator and User APIs*[7].
 Det är också viktig att lägga mycket arbeta på att skydda sig mot XSS attacker vilket innebär att användarens session blir stulen av angriparen[1].
 
 ##XSS Cross site scripting
