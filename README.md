@@ -95,12 +95,15 @@ Funktioner som inte fungerade skulle i värsta fall kunna innebära att data int
 
 #Egna övergripande reflektioner
 
-Tanken som slår mig är att alla säkerhetshål, oavsett om det är en attack av en injektion eller någon annan hacker attack, resulterar i att datan som kommer fram är nästan densamma. Det är ett stort hot mot användarna och till och med samhället om känslig data hamnar i fel händer. 
+Tanken som slår mig är att alla säkerhetshål, oavsett om det är en attack av en injektion eller någon annan hacker attack, resulterar i att datan som kommer fram är nästan densamma. Det är ett stort hot mot användarna och till och med samhället om känslig data hamnar i fel händer.
+
 Det ligger ett stort ansvar på utvecklarna att “täppa till” alla säkerhetshål som är öppna samt hålla applikationens alla delar uppdaterade med senaste tekniken. Det börjar sjunka in att det är mer jobb med underhåll och uppdateringar än jag tidigare trott. 
 Att jobba med säkerheten på ett företag, anser jag,  kräver stort ansvar och ett stort kunnande om vilka säkerhetshål som finns och lika snabbt som det kommer nya tekniker kommer det också nya problem med säkerhet och attacker. 
-När det gäller prestandaproblem så känns det likadant, det tycks finnas mer att jobba på än jag visste förut. Det är inte bara att “kasta ut” hemsidor på webben och tro att de ska fungera hur bra som helst. Det krävs mycket tid och jobb att utveckla en bra fungerande applikation. Jag kan bara referera till mig själv då jag ofta väljer bort många sidor som tar lång tid på sig att ladda fram. Denna sidan kunde fått en användare till om utvecklaren jobbat mer på prestandan. 
+
+När det gäller prestandaproblem så känns det likadant, det tycks finnas mer att jobba på än jag visste förut. Det är inte bara att “kasta ut” hemsidor på webben och tro att de ska fungera hur bra som helst. Det krävs mycket tid och jobb att utveckla en bra fungerande applikation. Jag kan bara referera till mig själv då jag ofta väljer bort många sidor som tar lång tid på sig att ladda fram. Denna sidan kunde fått en användare till om utvecklaren jobbat mer på prestandan.
+
 En rolig sak som fick mig att skratta och tänka till var det som nämndes i kurslitteraturen gällande om man har en progressbar för att få användaren att fokusera på något annat samtidigt som sidan renderas upp. På det sättet kunde man “köpa” sig lite HTTP tid. Det var lite mitt i prick hur det skulle kunna fungerar att ha kvar en användare eller inte.
-Jag undrade om boken[9] fortfarande är lika aktuell som när den gavs ut (2007). Denna tanke  gjorde att jag blev lite tveksam till vissa delar och ville veta om det forfarande fungerade så idag. Dock måste jag säga att boken var bra och mycket lättläst. 
+Jag undrade om boken[9] fortfarande är lika aktuell som när den gavs ut (2007). Denna tanke gjorde att jag blev lite tveksam till vissa delar och ville veta om det forfarande fungerade så idag. Dock måste jag säga att boken var bra och mycket lättläst. 
 
 
 
