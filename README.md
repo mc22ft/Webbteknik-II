@@ -106,22 +106,22 @@ Jag undrade om boken[9] fortfarande är lika aktuell som när den gavs ut (2007)
 
 #Refernslista
 
-[1] OWASP, "OWASP Top Ten Project," www.owasp.org, 12 June 2013, [Online] Tillgänglig pdf: https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013. [Hämtad: 26 November, 2015].
+[1] OWASP, "OWASP Top Ten Project," *www.owasp.org*, 12 June 2013, [Online] Tillgänglig pdf: https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013. [Hämtad: 26 November, 2015].
 
-[2] SoapUI, "OWASP Application Security Verification Standard Project," www.owasp.org, 4 November 2015 [Online] Tillgänglig: https://www.owasp.org/index.php/ASVS. [Hämtad: 01 December, 2015].
+[2] SoapUI, "OWASP Application Security Verification Standard Project," *www.owasp.org*, 4 November 2015 [Online] Tillgänglig: https://www.owasp.org/index.php/ASVS. [Hämtad: 01 December, 2015].
 
-[3] OWASP, "SQL Injection Prevention Cheat Sheet," www.owasp.org, 11 Maj 2015 [Online] Tillgänglig: https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
+[3] OWASP, "SQL Injection Prevention Cheat Sheet," *www.owasp.org*, 11 Maj 2015 [Online] Tillgänglig: https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet
 . [Hämtad: 30 November 2015].
 
-[4] Wikipedia, "Hypertext Transfer Protocol Secure," https://sv.wikipedia.org, 9 November 2015, [Online] Tillgänglig: https://sv.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure. [Hämtad: 26 November, 2015].
+[4] Wikipedia, "Hypertext Transfer Protocol Secure," *https://sv.wikipedia.org*, 9 November 2015, [Online] Tillgänglig: https://sv.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure. [Hämtad: 26 November, 2015].
 
-[5] YouTube, "Demo XSS," https://www.youtube.com, 19 Mars 2012, [Online] Tillgänglig pdf: https://www.youtube.com/watch?v=KiWJ8D-kHiI. [Hämtad: 26 november, 2015].
+[5] YouTube, "Demo XSS," *https://www.youtube.com*, 19 Mars 2012, [Online] Tillgänglig pdf: https://www.youtube.com/watch?v=KiWJ8D-kHiI. [Hämtad: 26 november, 2015].
 
-[6] XML-Sitemaps, "Build your Site Map online," https://www.xml-sitemaps.com, [Online] Tillgänglig: https://www.xml-sitemaps.com. [Hämtad: 30 november, 2015].
+[6] XML-Sitemaps, "Build your Site Map online," *https://www.xml-sitemaps.com*, [Online] Tillgänglig: https://www.xml-sitemaps.com. [Hämtad: 30 november, 2015].
 
-[7] owasp-esapi-java, "Interface Authenticator," http://owasp-esapi-java.googlecode.com, 1 June 2007, [Online] Tillgänglig: http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest/org/owasp/esapi/Authenticator.html. [Hämtad: 01 December, 2015].
+[7] owasp-esapi-java, "Interface Authenticator," *http://owasp-esapi-java.googlecode.com*, 1 June 2007, [Online] Tillgänglig: http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest/org/owasp/esapi/Authenticator.html. [Hämtad: 01 December, 2015].
 
 [8] OWASP, "Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet
-," www.owasp.org, 11 Maj 2015, [Online] Tillgänglig: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet. [Hämtad: 1 December, 2015].
+," *www.owasp.org*, 11 Maj 2015, [Online] Tillgänglig: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet. [Hämtad: 1 December, 2015].
 
-[9] O,REILLY, Steve Sounders, High Performance Web Sites. Sebastopol: O,REILLY Media Inc, September 2007.
+[9] O,REILLY, Steve Sounders, *High Performance Web Sites*. Sebastopol: O,REILLY Media Inc, September 2007.
