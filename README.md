@@ -1,5 +1,5 @@
-#Rapporten Laboration 02
-Webbteknik II 
+#Rapporten
+
 Mathias Claesson mc22ft
 
 
